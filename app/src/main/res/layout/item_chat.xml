@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewHolder"
+            type="br.com.noclaftech.showin.presentation.adapter.ChatAdapter.Holder" />
+        <import type="br.com.noclaftech.showin.presentation.util.Helper"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingVertical="5dp"
+        tools:background="@color/black">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            loadImage="@{viewHolder.message.photo}"
+            tools:src="@drawable/person_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintEnd_toStartOf="@id/moreImageView">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userName"
+                tools:text="@{Helper.getAt(viewHolder.message.username)}"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <br.com.noclaftech.showin.presentation.util.TextViewWithImages
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/message"
+                tools:text="que show legal"
+                android:fontFamily="@font/firasanslight"
+                android:text="@{viewHolder.message.message}"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+       <ImageView
+           android:id="@+id/moreImageView"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:orientation="vertical"
+           android:src="@drawable/more_icon"
+           android:layout_marginEnd="5dp"
+           android:paddingVertical="5dp"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

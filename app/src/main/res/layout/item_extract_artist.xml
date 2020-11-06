@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewHolder"
+            type="br.com.noclaftech.showin.presentation.adapter.ExtractArtistAdapter.Holder" />
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@color/black"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:id="@+id/show_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{viewHolder.extract.name}"
+            tools:text="show name"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_sell"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/total_sell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewHolder.extract.real ? String.format(@string/money_type_format, viewHolder.valuePaidTicketsReal) : String.format(@string/total_coins, viewHolder.extract.coinPaidTickets)}"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                tools:text="5 moedas"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_donation"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/total_donation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewHolder.extract.real ? String.format(@string/money_type_format, viewHolder.valueDonationsReal) : String.format(@string/total_coins, viewHolder.extract.coinDonations)}"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="5 moedas" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_collected"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/total_collected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewHolder.extract.real ? String.format(@string/money_type_format, viewHolder.total) : String.format(@string/money_type_format, viewHolder.valuePaidTickets)}"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="R$ 1000,00" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewHolder.extract.real ? String.format(@string/tax, viewHolder.showinPercentage) : @string/infrastructure_cost}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/infrastructure_cost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="R$ 1000,00"
+                android:text="@{viewHolder.extract.real ? String.format(@string/money_type_format, viewHolder.showinValue) : String.format(@string/money_type_format, viewHolder.platformCost)}"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewHolder.extract.real ? View.GONE : View.VISIBLE}"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ecad_fees"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/card_fees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="R$ 1000,00"
+                android:text="@{String.format(@string/money_type_format, viewHolder.ecadCost)}"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewHolder.extract.real ? String.format(@string/artist_total, viewHolder.artistPercentage) : String.format(@string/artist_total, viewHolder.percentage)}"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/totalArtist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewHolder.extract.real ? String.format(@string/money_type_format, viewHolder.artistTotalReal) : String.format(@string/money_type_format, viewHolder.artistTotal)}"
+                android:textColor="@color/blue"
+                android:textSize="14sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</layout>

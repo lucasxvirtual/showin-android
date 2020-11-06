@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.scheduleshow.ScheduleShowViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.scheduleshow.ScheduleShowStep2Activity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> viewModel.goBack()}"
+                    android:src="@drawable/back_icon"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/live_schedule"
+                    android:textSize="24sp"
+                    android:textColor="@color/pink"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ticket_price_in_coins"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pay_what_you_can"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.payWhatYouCan}"
+                    android:theme="@style/SCBSwitch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/how_much_i_receive"
+                android:onClick="@{() -> viewModel.onClickCost()}"
+                android:textSize="16sp"
+                android:textColor="@color/pink"
+                android:layout_marginTop="15dp"/-->
+
+            <EditText
+                android:id="@+id/ticketPriceCoins"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.ticketPrice}"
+                android:visibility="@{viewModel.payWhatYouCan ? View.GONE : View.VISIBLE}"
+                android:hint="@string/ticket_price_in_coins"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:maxLength="4"
+                android:inputType="number"
+                android:background="@drawable/bg_edit_text2"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"/>
+
+            <EditText
+                android:id="@+id/suggestedCurrencyValue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.suggestedCurrency}"
+                android:visibility="@{viewModel.payWhatYouCan ? View.VISIBLE :  View.GONE}"
+                android:hint="@string/suggested_currency_value"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:maxLength="4"
+                android:inputType="number"
+                android:background="@drawable/bg_edit_text2"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"/>
+
+            <LinearLayout
+                android:id="@+id/revenue_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/currency_value"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:alpha="0.7"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/coin_price"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/price_value_zero"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="5dp">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/ticket_value_artist"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:alpha="0.7"-->
+<!--                        app:layout_constraintEnd_toStartOf="@id/platform_cost"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/platform_cost"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/platform_cost_zero"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textSize="16sp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/showinValue"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:alpha="0.7"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintEnd_toStartOf="@id/remaining_ticket_value"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/remaining_ticket_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price_value_zero"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:alpha="0.7"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintEnd_toStartOf="@id/artist_value_per_ticket"
+                        android:id="@+id/artistValue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/artist_value_per_ticket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price_value_zero"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tickets_limit"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.limitTicket}"
+                    android:theme="@style/SCBSwitch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={viewModel.limit}"
+                android:visibility="@{viewModel.limitTicket? View.VISIBLE : View.GONE}"
+                android:id="@+id/ticketLimit"
+                android:hint="@string/n_tickets_limit"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="number"
+                android:background="@drawable/bg_edit_text2"
+                android:layout_marginTop="15dp"
+                android:padding="15dp"/>
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/category"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="18sp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:textStyle="bold"/>-->
+
+<!--            <EditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:id="@+id/category"-->
+<!--                android:text="@={viewModel.category}"-->
+<!--                android:onClick="@{() -> viewModel.onClickCategory()}"-->
+<!--                android:focusable="false"-->
+<!--                android:hint="@string/category"-->
+<!--                android:textColorHint="@color/white"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:inputType="text"-->
+<!--                android:background="@drawable/bg_edit_text2"-->
+<!--                android:layout_marginTop="15dp"-->
+<!--                android:padding="15dp"/>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/attention_here"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/send_ticket_notification"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/sendTicketNotification"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/sendTicketNotification"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <Switch
+                    android:id="@+id/sendTicketNotification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.sendTicketNotification}"
+                    android:theme="@style/SCBSwitch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/winners_on_show"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/displayViewers"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <Switch
+                    android:id="@+id/displayViewers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.displayViewers}"
+                    android:theme="@style/SCBSwitch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/live_test"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/liveTest"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <Switch
+                    android:id="@+id/liveTest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="@={viewModel.liveTest}"
+                    android:theme="@style/SCBSwitch"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/what_about_pre_view"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toStartOf="@id/pre_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <Button
+                    android:id="@+id/pre_view"
+                    android:layout_width="170dp"
+                    android:layout_height="40dp"
+                    android:text="@string/pre_view"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_pink"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:onClick="@{() -> viewModel.onClickSuccess()}"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_multicolor_button"
+                android:layout_marginTop="30dp"
+                android:text="@string/live_schedule"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:padding="10dp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

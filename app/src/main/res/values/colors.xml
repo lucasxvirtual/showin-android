@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="black">#000000</color>
+    <color name="black_transparent">#A6000000</color>
+    <color name="black_edit_text">#191919</color>
+    <color name="ed_transparent_black">#26FFFFFF</color>
+    <color name="edit_dark">#292828</color>
+    <color name="bg_transparent_black">#4D000000</color>
+    <color name="line_grey">#808080</color>
+    <color name="pink">#E7326D</color>
+    <color name="light_pink">#FF7DA8</color>
+    <color name="yellow">#fbbb43</color>
+    <color name="white">#FFFFFF</color>
+    <color name="facebook">#0F71AE</color>
+    <color name="google">#DB4F42</color>
+    <color name="green">#00ff00</color>
+    <color name="light_blue">#63C3D1</color>
+    <color name="blue">#009DB4</color>
+    <color name="white_alpha">#4dFFFFFF</color>
+    <color name="red">#E30713</color>
+    <color name="orange">#E8AB42</color>
+    <color name="grey">#EEEEEE</color>
+    <color name="bottom_grey">#101010</color>
+    <color name="background_donate">#316269</color>
+
+    <color name="transparent">#80FFFFFF</color>
+    <color name="full_transparent">#00000000</color>
+
+</resources>

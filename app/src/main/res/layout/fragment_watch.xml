@@ -1,0 +1,641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.watch.WatchViewModel" />
+
+        <import type="android.view.View"/>
+        <import type="br.com.noclaftech.showin.presentation.util.Helper"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/linear">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="15dp"
+                android:onClick="@{() -> viewModel.onFullScreenClicked()}"
+                android:tint="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@{viewModel.fullScreen ? @drawable/shrink : @drawable/expand}"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:visibility="@{viewModel.show.displayViewers ? View.VISIBLE : View.INVISIBLE}"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/linear"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/eye"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="5"
+                android:layout_gravity="center"
+                android:text="@{String.valueOf(viewModel.viewers)}"
+                android:textSize="16sp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backIcon"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:visibility="gone"
+                android:padding="10dp"
+                android:src="@drawable/back_icon"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:visibility="gone"
+                android:src="@drawable/logo_showin_white_full"
+                android:layout_marginStart="10dp"
+                app:layout_constraintStart_toEndOf="@+id/backIcon"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginEnd="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@drawable/ic_live"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/live"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"/>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:layout_marginTop="200dp"
+            android:orientation="vertical"
+            tools:context=".presentation.watch.WatchActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="Artista"
+                            android:fontFamily="@font/firasansbold"
+                            android:textStyle="bold"
+                            android:text="@{Helper.getAt(viewModel.show.artist.user.username)}"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:visibility="@{viewModel.show.artist.verified ? View.VISIBLE : View.GONE}"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/verified" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            tools:text="10 ABR 2020 | 21h - 23h"
+                            android:gravity="end"
+                            android:layout_weight="1"
+                            android:text="@{Helper.getDateShowNoWeekDay(viewModel.show.date, viewModel.show.dateFinish)}"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="On tour"
+                        android:paddingHorizontal="20dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{viewModel.show.name}"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp"
+                        android:paddingHorizontal="20dp"
+                        android:layout_marginBottom="12dp">
+
+                        <LinearLayout
+                            android:id="@+id/chat_icon_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:id="@+id/chat_icon"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:onClick="@{() -> viewModel.onNoChatClick()}"
+                                android:src="@drawable/hide_chat_icon"
+                                android:background="@drawable/bg_white_border"
+                                android:tint="@color/white"
+                                android:padding="8dp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:visibility="gone"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bg_multicolor_button"
+                            android:gravity="center"
+                            android:onClick="@{() -> viewModel.onClickDonate()}"
+                            android:layout_marginStart="10dp"
+                            android:layout_gravity="end"
+                            android:paddingStart="25dp"
+                            android:paddingEnd="25dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/support_the_star"
+                                android:textAllCaps="true"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:layout_gravity="center"/>
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:src="@drawable/coin_icon_white"
+                                android:layout_marginStart="10dp"/>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout android:id="@+id/chat_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight="1">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recycler"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                itemsDown="@{viewModel.chatMessages}"/>
+
+                            <ProgressBar
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:theme="@style/ProgressbarTheme"
+                                android:visibility="@{viewModel.nonBlockingLoading ? View.VISIBLE : View.GONE}"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toTopOf="@+id/emojisScrollView"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"/>
+
+                            <HorizontalScrollView
+                                android:id="@+id/emojisScrollView"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:visibility="@{viewModel.emoji ? View.VISIBLE : View.GONE}"
+                                android:layout_marginBottom="5dp"
+                                android:fillViewport="true"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:layout_margin="5dp"
+                                        android:onClick="@{() -> viewModel.emoji(0)}"
+                                        android:src="@drawable/clap"
+                                        />
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:onClick="@{() -> viewModel.emoji(1)}"
+                                        android:layout_margin="5dp"
+                                        android:src="@drawable/hot"/>
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:layout_margin="5dp"
+                                        android:onClick="@{() -> viewModel.emoji(2)}"
+                                        android:src="@drawable/heart"/>
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:layout_margin="5dp"
+                                        android:onClick="@{() -> viewModel.emoji(3)}"
+                                        android:src="@drawable/love"/>
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:layout_margin="5dp"
+                                        android:onClick="@{() -> viewModel.emoji(4)}"
+                                        android:src="@drawable/laugh"/>
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:layout_margin="5dp"
+                                        android:onClick="@{() -> viewModel.emoji(5)}"
+                                        android:src="@drawable/star"/>
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:layout_margin="5dp"
+                                        android:onClick="@{() -> viewModel.emoji(6)}"
+                                        android:src="@drawable/stars"/>
+
+                                    <ImageView
+                                        android:layout_width="35dp"
+                                        android:layout_height="35dp"
+                                        android:padding="5dp"
+                                        android:background="@drawable/bg_gray"
+                                        android:layout_margin="5dp"
+                                        android:onClick="@{() -> viewModel.emoji(7)}"
+                                        android:src="@drawable/bigstar"/>
+
+                                </LinearLayout>
+
+                            </HorizontalScrollView>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/bg_text_streaming"
+                            android:layout_marginBottom="15dp">
+
+                            <EditText
+                                android:id="@+id/message"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="15dp"
+                                android:paddingTop="15dp"
+                                android:paddingBottom="15dp"
+                                android:text="@={viewModel.chatText}"
+                                android:paddingEnd="90dp"
+                                android:hint="@string/type"
+                                android:lines="1"
+                                android:textColor="@color/white"
+                                android:textColorHint="@color/white"
+                                android:textSize="16sp"
+                                android:inputType="textMultiLine"
+                                android:background="@android:color/transparent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+
+                            <ImageView
+                                android:id="@+id/emoji"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:onClick="@{() -> viewModel.emojiClick()}"
+                                android:src="@drawable/emoji"
+                                android:tint="@color/white"
+                                android:layout_marginEnd="10dp"
+                                android:background="@drawable/bg_light_blue"
+                                android:padding="8dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+
+                            <ImageView
+                                android:id="@+id/send"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:onClick="@{() -> viewModel.sendMessage()}"
+                                android:src="@drawable/back_icon"
+                                android:rotation="180"
+                                android:background="@drawable/bg_button_white_transparent"
+                                android:padding="9dp"
+                                android:layout_marginEnd="10dp"
+                                app:layout_constraintEnd_toStartOf="@+id/emoji"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <ScrollView android:id="@+id/artist_info_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/presentation"
+                                android:textColor="@color/pink"
+                                android:textSize="20sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/description"
+                                android:layout_marginTop="20dp"
+                                android:text="@{viewModel.show.description}"
+                                tools:text="@string/lorem_ipsum"
+                                android:textColor="@color/white"
+                                android:alpha="0.7"
+                                android:textSize="14sp"/>
+
+<!--                            <TextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:id="@+id/category"-->
+<!--                                android:layout_marginTop="20dp"-->
+<!--                                android:text="@{viewModel.show.categoryObj.name}"-->
+<!--                                tools:text="Categoria"-->
+<!--                                android:textColor="@color/white"-->
+<!--                                android:textSize="14sp"/>-->
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/about_star"
+                                android:textColor="@color/pink"
+                                android:layout_marginTop="20dp"
+                                android:textSize="20sp"
+                                android:textStyle="bold"/>
+
+                            <TextView
+                                android:id="@+id/aboutArtist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="@{viewModel.show.artist.user.bio}"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:alpha="0.7"
+                                tools:text="@string/lorem_ipsum" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="30dp"
+                                android:layout_marginTop="20dp">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/layout"
+                                    android:layout_width="110dp"
+                                    android:layout_height="110dp"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent">
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/imageProfile"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        app:loadImage="@{viewModel.show.artist.user.profileImage}"
+                                        tools:src="@drawable/ticket_image" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/name_layout"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="15dp"
+                                    android:orientation="vertical"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toEndOf="@id/layout"
+                                    app:layout_constraintEnd_toEndOf="parent">
+
+                                    <TextView
+                                        android:id="@+id/nameArtist"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        tools:text="Vitor Kley"
+                                        android:text="@{viewModel.show.artist.artisticName}"
+                                        android:textColor="@color/white"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold"
+                                        />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/userName"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@{Helper.getAt(viewModel.show.artist.user.username)}"
+                                            android:textColor="@color/white"
+                                            tools:text=" @Vitor"
+                                            android:textSize="18sp"
+                                            />
+
+                                        <ImageView
+                                            android:layout_width="20dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_gravity="center"
+                                            android:layout_marginStart="10dp"
+                                            android:visibility="@{viewModel.show.artist.verified ? View.VISIBLE : View.GONE}"
+                                            android:src="@drawable/verified" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="45dp"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="10dp">
+
+                                        <Button
+                                            android:id="@+id/follow"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:text="@{viewModel.show.artist.user.isFollowed ? @string/following : @string/follow }"
+                                            android:textSize="13sp"
+                                            android:textStyle="bold"
+                                            android:layout_weight="1"
+                                            tools:text="@string/follow"
+                                            android:textAllCaps="true"
+                                            android:textColor="@color/white"
+                                            android:paddingEnd="10dp"
+                                            android:paddingStart="10dp"
+                                            android:layout_marginEnd="10dp"
+                                            android:background="@{viewModel.show.artist.user.isFollowed? @drawable/bg_button_blue : @drawable/bg_button_pink}"/>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:visibility="invisible"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/bg_button"
+                                            android:padding="5dp">
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="41dp"
+                                                android:layout_gravity="center"
+                                                android:gravity="center"
+                                                tools:text="100k\n seguidores"
+                                                android:textAllCaps="true"
+                                                android:textColor="@color/white"
+                                                android:textSize="12sp" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                    </ScrollView>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

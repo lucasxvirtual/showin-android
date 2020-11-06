@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.changeartistaccountstep1.ChangeArtistAccountStep1ViewModel"/>
+        <import type="android.view.View"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:padding="20dp"
+        tools:context=".presentation.changeartistaccountstep1.ChangeArtistAccountStep1Activity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    >
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:onClick="@{() -> viewModel.onBackClicked()}"
+                        android:padding="10dp"
+                        android:src="@drawable/back_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/change_to_star_account"
+                        android:textColor="@color/pink"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="10dp"
+                        android:layout_gravity="center"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_change_artist_account"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="16sp"/>
+
+                <EditText
+                    android:id="@+id/artisticName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_edit_text2"
+                    android:hint="@string/artistic_name"
+                    android:maxLength="25"
+                    android:text="@={viewModel.artisticName}"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="textPersonName"
+                    android:padding="15dp"/>
+                
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bank_data"
+                        android:textColor="@color/white"
+                        android:padding="5dp"
+                        android:textStyle="bold"
+                        android:textSize="17sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+
+                    <EditText
+                        android:id="@+id/person"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/physical_person"
+                        android:text="@{viewModel.isPhysicalPerson ? @string/physical_person : @string/legal_person}"
+                        android:focusable="false"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:inputType="textPersonName"
+                        android:padding="15dp"
+                        android:background="@drawable/bg_edit_text2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/arrow_down"
+                        android:backgroundTint="@color/white"
+                        android:tint="@color/white"
+                        android:layout_marginEnd="10dp"
+                        android:spinnerMode="dialog"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
+                    
+                    <EditText
+                        android:id="@+id/bank"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/bank"
+                        android:text="@={viewModel.bank}"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:inputType="textPersonName"
+                        android:padding="15dp"
+                        android:background="@drawable/bg_edit_text2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                    
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/arrow_down"
+                        android:tint="@color/white"
+                        android:visibility="gone"
+                        android:padding="8dp"
+                        android:layout_marginEnd="10dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/agency"
+                    android:layout_marginTop="15dp"
+                    android:hint="@string/agency"
+                    android:text="@={viewModel.agency}"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:background="@drawable/bg_edit_text2"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/account"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:hint="@string/account"
+                        android:text="@={viewModel.account}"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:inputType="text"
+                        android:background="@drawable/bg_edit_text2"
+                        android:padding="15dp"/>
+
+                    <EditText
+                        android:id="@+id/digit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:hint="@string/digit"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:inputType="number"
+                        android:padding="15dp"
+                        android:background="@drawable/bg_edit_text2"
+                        android:layout_marginStart="15dp"
+                        app:layout_constraintStart_toEndOf="@id/account"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </LinearLayout>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cpf"
+                    android:layout_marginTop="15dp"
+                    android:hint="@string/cpf"
+                    android:text="@={viewModel.cpf}"
+                    android:visibility="@{viewModel.isPhysicalPerson ? View.VISIBLE : View.GONE}"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    mask="@{@string/mask_cpf}"
+                    android:background="@drawable/bg_edit_text2"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cnpj"
+                    android:layout_marginTop="15dp"
+                    android:hint="@string/cnpj"
+                    android:text="@={viewModel.cnpj}"
+                    android:visibility="@{viewModel.isPhysicalPerson ? View.GONE : View.VISIBLE}"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="number"
+                    android:padding="15dp"
+                    mask="@{@string/mask_cnpj}"
+                    android:background="@drawable/bg_edit_text2"/>
+
+                <EditText
+                    android:id="@+id/owner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:hint="@{viewModel.isPhysicalPerson ? @string/cardholder_name : @string/company_name}"
+                    android:text="@={viewModel.owner}"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="textPersonName"
+                    android:padding="15dp"
+                    android:background="@drawable/bg_edit_text2"/>
+
+                <Button
+                    android:layout_width="280dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_multicolor_button"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="30dp"
+                    android:text="@string/switch_to_star_account"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:onClick="@{() -> viewModel.onNextClicked()}"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.buyticket.BuyTicketViewModel"/>
+
+        <import type="android.view.View"/>
+        <import type="br.com.noclaftech.showin.presentation.util.Helper"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.buyticket.BuyTicketActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="H,1:1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ticket_image"
+                app:loadImage="@{viewModel.image}"
+                android:id="@+id/image"
+                android:scaleType="centerCrop"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/gradient_black2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/price_layout">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.artistName}"
+                    tools:text="Vitor Kley"
+                    android:textColor="@color/yellow"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="1"
+                    android:shadowDy="4"
+                    android:shadowDx="4" />
+
+                <TextView
+                    android:id="@+id/nameShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="@{viewModel.showName}"
+                    android:textStyle="bold|italic"
+                    android:fontFamily="@font/firasansitalic"
+                    tools:text="On tour"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/date"
+                    android:textSize="14sp"
+                    android:text="@{viewModel.date}"
+                    tools:text="SEX, 10 ABR 2020"
+                    android:textColor="@color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/hour"
+                    android:textSize="14sp"
+                    android:text="@{viewModel.hour}"
+                    android:layout_marginBottom="16dp"
+                    tools:text="21h - 23h"
+                    android:textColor="@color/white"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    tools:src="@drawable/classification"
+                    app:imageUrl="@{viewModel.ageRating}"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/price_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="20dp"
+                android:layout_marginEnd="20dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:paddingStart="3dp"
+                android:gravity="center"
+                android:background="@drawable/bg_white_border"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/price"
+                    tools:text="5"
+                    android:text="@{String.format(@string/price_value_float, viewModel.price).replace('.',',')}"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textColor="@color/white"/>
+
+<!--                <ImageView-->
+<!--                    android:layout_width="25dp"-->
+<!--                    android:layout_height="25dp"-->
+<!--                    android:layout_marginEnd="10dp"-->
+<!--                    android:src="@drawable/coin_white_icon"/>-->
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/backIcon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:onClick="@{() -> viewModel.onBackClicked()}"
+                android:padding="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/back_icon"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buy_ticket"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toEndOf="@+id/backIcon"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                >-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:padding="10dp"-->
+<!--                    android:onClick="@{() -> viewModel.onBackClicked()}"-->
+<!--                    android:src="@drawable/back_icon"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/buy_ticket"-->
+<!--                    android:textColor="@color/pink"-->
+<!--                    android:textSize="26sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_gravity="center"/>-->
+
+<!--            </LinearLayout>-->
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="180dp"-->
+<!--                android:layout_marginTop="30dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    tools:src="@drawable/ticket_image"-->
+<!--                    android:id="@+id/image"-->
+<!--                    app:loadImage="@{viewModel.image}"-->
+<!--                    android:scaleType="centerCrop"/>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:background="@drawable/gradient_black2"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_marginStart="20dp"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:layout_gravity="center">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/name"-->
+<!--                        android:text="@{viewModel.artistName}"-->
+<!--                        tools:text="Vitor Kley"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="24sp"-->
+<!--                        />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/nameShow"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textStyle="bold|italic"-->
+<!--                        tools:text="On tour"-->
+<!--                        android:text="@{viewModel.showName}"-->
+<!--                        android:layout_marginTop="-8dp"-->
+<!--                        android:layout_marginBottom="-2dp"-->
+<!--                        android:textColor="@color/white"/>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/date"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        tools:text="SEX, 10 ABR 2020"-->
+<!--                        android:layout_marginBottom="-5dp"-->
+<!--                        android:text="@{viewModel.date}"-->
+<!--                        android:textColor="@color/white"/>-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/hour"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textSize="14sp"-->
+<!--                        tools:text="21h - 23h"-->
+<!--                        android:text="@{viewModel.hour}"-->
+<!--                        android:textColor="@color/white"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="20dp"-->
+<!--                        android:layout_height="20dp"-->
+<!--                        android:layout_marginTop="5dp"-->
+<!--                        app:loadImage="@{viewModel.ageRating}"-->
+<!--                        tools:src="@drawable/classification"-->
+<!--                        />-->
+
+<!--                </LinearLayout>-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    android:layout_marginBottom="20dp"-->
+<!--                    android:layout_marginEnd="20dp"-->
+<!--                    android:paddingTop="8dp"-->
+<!--                    android:paddingBottom="8dp"-->
+<!--                    android:paddingStart="3dp"-->
+<!--                    android:gravity="center"-->
+<!--                    android:background="@drawable/bg_white_border"-->
+<!--                    android:orientation="horizontal">-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:id="@+id/price"-->
+<!--                        tools:text="5"-->
+<!--                        android:text="@{String.valueOf(viewModel.price)}"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        android:textColor="@color/white"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="25dp"-->
+<!--                        android:layout_height="25dp"-->
+<!--                        android:layout_marginEnd="10dp"-->
+<!--                        android:src="@drawable/coin_white_icon"/>-->
+
+<!--                </LinearLayout>-->
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/number_of_tickets"
+                        android:textColor="@color/white"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_edit_text2"
+                        android:padding="10dp"
+                        android:lines="1"
+                        android:textColor="@color/white"
+                        android:id="@+id/number_of_tickets"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:text="@={viewModel.numberOfTickets}"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.checkPayWhatYouCan ? @string/pay_what_you_can : @string/total_value}"
+                        android:textColor="@color/white"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_edit_text2"
+                            android:lines="1"
+                            android:textColor="@color/white"
+                            android:enabled="@{viewModel.checkPayWhatYouCan ? true : false}"
+                            android:focusable="@{viewModel.checkPayWhatYouCan ? true : false}"
+                            android:id="@+id/priceTicket"
+                            android:inputType="numberDecimal"
+                            android:paddingStart="36dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="10dp"
+                            android:singleLine="true"
+                            android:text="@={viewModel.value}"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="R$"
+                            android:textSize="18sp"
+                            android:textColor="@color/white"
+                            android:layout_marginEnd="10dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="10dp"
+                            android:src="@drawable/coin_icon_white"/>
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="20dp"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="25dp">-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/available_winns"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:textSize="16sp"-->
+<!--                    android:id="@+id/textAvailableCoins"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_toStartOf="@id/availableCoins"-->
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    tools:text="25"-->
+<!--                    android:text="@{String.valueOf(viewModel.user.balance.value)}"-->
+<!--                    android:textColor="@color/pink"-->
+<!--                    android:textSize="22sp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:layout_marginEnd="5dp"-->
+<!--                    android:id="@+id/availableCoins"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_toStartOf="@id/coin1"-->
+<!--                    />-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:id="@+id/coin1"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:src="@drawable/coin_icon"/>-->
+
+<!--            </RelativeLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="center"-->
+<!--                android:visibility="@{Helper.getValue(viewModel.value) > viewModel.user.balance.value ? View.VISIBLE : View.GONE}"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="50dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:tint="@color/white"-->
+<!--                    android:src="@drawable/sad_emoji"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/not_enough_winns"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textColor="@color/white"/>-->
+
+<!--            </LinearLayout>-->
+
+            <Button
+                android:id="@+id/confirmBuy"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm_buy"
+                android:onClick="@{() -> viewModel.onBuyClicked()}"
+                android:background="@drawable/bg_button_blue"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"/>
+
+<!--            <Button-->
+<!--                android:id="@+id/buyCoins"-->
+<!--                android:layout_width="180dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:onClick="@{() -> viewModel.onBuyCoinClicked()}"-->
+<!--                android:text="@string/buy_winns"-->
+<!--                android:visibility="@{Helper.getValue(viewModel.value) > viewModel.user.balance.value ? View.VISIBLE : View.GONE}"-->
+<!--                android:background="@drawable/bg_button_pink"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:layout_marginBottom="50dp"/>-->
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

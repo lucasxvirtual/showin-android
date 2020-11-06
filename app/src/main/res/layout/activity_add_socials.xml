@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.addsocials.AddSocialsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.addsocials.AddSocialsActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> viewModel.onBackClick()}"
+                    android:src="@drawable/back_icon"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_socials"
+                    android:textColor="@color/pink"
+                    android:textSize="24sp"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/socials_info"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:paddingEnd="20dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/whatsapp"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="25dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_edit_text2">
+
+                    <TextView
+                        android:id="@+id/whatsapp_holder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/whatsapp_et_text"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/darker_gray"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <EditText
+                        android:id="@+id/whatsapp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        mask="@{@string/mask_phone2}"
+                        android:text="@={viewModel.whatsapp}"
+                        android:hint="@string/whatsapp_hint"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:inputType="phone"
+                        android:textColor="@color/white"
+                        android:imeOptions="actionNext"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:layout_marginStart="4.5dp"
+                        android:background="@android:color/transparent"
+                        android:paddingStart="44dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/instagram"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="15dp"/>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_edit_text2">
+
+                    <TextView
+                        android:id="@+id/instagram_at_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/at_sign"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/darker_gray"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/instagram"
+                        android:hint="@string/instagram_hint"
+                        android:text="@={viewModel.instagram}"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:inputType="text"
+                        android:textColor="@color/white"
+                        android:imeOptions="actionNext"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginStart="1dp"
+                        android:paddingStart="35dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/facebook_social"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="15dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/facebook_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_edit_text2">
+
+                    <TextView
+                        android:id="@+id/facebook_holder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/facebook_et"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/darker_gray"
+                        android:layout_marginStart="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <EditText
+                        android:id="@+id/facebook"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.facebook}"
+                        android:hint="@string/your_id"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/white"
+                        android:imeOptions="actionNext"
+                        android:background="@android:color/transparent"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingStart="137dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/linkedin"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="15dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_edit_text2">
+
+                    <TextView
+                        android:id="@+id/linkedin_holder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/linkedin_hint"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/darker_gray"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/linkedin"
+                        android:text="@={viewModel.linkedin}"
+                        android:hint="@string/your_id"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/white"
+                        android:imeOptions="actionNext"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:paddingStart="155dp"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/twitter"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="15dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_edit_text2">
+
+                    <TextView
+                        android:id="@+id/twitter_at_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/at_sign"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/darker_gray"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/twitter"
+                        android:text="@={viewModel.twitter}"
+                        android:hint="@string/instagram_hint"
+                        android:textColorHint="@android:color/darker_gray"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/white"
+                        android:imeOptions="actionDone"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginStart="1dp"
+                        android:paddingStart="35dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onSaveClicked()}"
+                android:layout_gravity="center"
+                android:text="@string/save"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_multicolor_button"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
+

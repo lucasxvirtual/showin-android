@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.registrationinformation.RegistrationInformationViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:padding="20dp"
+        tools:context=".presentation.registrationinformation.RegistrationInformationActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="20dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> viewModel.onBackClicked()}"
+                    android:padding="10dp"
+                    android:src="@drawable/back_icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registration_information"
+                    android:textColor="@color/pink"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/userName_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/username"
+                android:text="@={viewModel.username}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:padding="12dp"
+                android:focusable="false"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:text="@={viewModel.email}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:focusable="false"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/artisticName"
+                android:hint="@string/name"
+                android:text="@={viewModel.name}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/artistic_name"
+                android:textColor="@color/white"
+                android:visibility="@{viewModel.artist != null ? View.VISIBLE : View.GONE}"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:maxLength="25"
+                android:hint="@string/artistic_name"
+                android:text="@={viewModel.artisticName}"
+                android:visibility="@{viewModel.artist != null ? View.VISIBLE : View.GONE}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textPersonName"
+                android:padding="12dp"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/birth"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="7dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/gender"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginStart="7dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/birthday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/birth"
+                    android:text="@={viewModel.birthDate}"
+                    android:onClick="@{() -> viewModel.onBirthDateClicked()}"
+                    android:focusable="false"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="numberDecimal"
+                    android:padding="12dp"
+                    android:background="@drawable/bg_edit_text2"
+                    android:layout_marginEnd="7dp"/>
+
+                <EditText
+                    android:id="@+id/gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@={viewModel.gender}"
+                    android:onClick="@{() -> viewModel.onGenderClicked()}"
+                    android:hint="@string/gender"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    android:padding="12dp"
+                    android:focusable="false"
+                    android:background="@drawable/bg_edit_text2"
+                    android:layout_marginStart="7dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bio"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="20dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/bio"
+                tools:text="@string/lorem_ipsum"
+                android:text="@={viewModel.biography}"
+                android:minLines="10"
+                android:maxLength="150"
+                android:lines="20"
+                android:layout_marginTop="5dp"
+                android:padding="12dp"
+                android:scrollbars="vertical"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textMultiLine"
+                android:background="@drawable/bg_edit_text2"
+                android:gravity="top" />
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onEditClicked()}"
+                android:text="@string/edit"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:background="@drawable/bg_multicolor_button"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="50dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

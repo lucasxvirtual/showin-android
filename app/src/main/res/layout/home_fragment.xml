@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.home.HomeViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/black"
+        tools:context=".presentation.home.HomeFragment">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:theme="@style/ProgressbarTheme"
+            android:visibility="@{viewModel.nonBlockingLoading ? View.VISIBLE : View.GONE}"
+            android:layout_centerInParent="true"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:clipToPadding="false"
+                        android:id="@+id/view_pager"
+                        android:overScrollMode="never"
+                        app:layout_constraintDimensionRatio="H,1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <com.rd.PageIndicatorView
+                        android:id="@+id/pageIndicatorView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        app:piv_animationType="scale"
+                        app:piv_dynamicCount="true"
+                        app:piv_interactiveAnimation="false"
+                        app:piv_selectedColor="@color/white"
+                        app:piv_unselectedColor="@color/transparent"
+                        app:piv_viewPager="@id/view_pager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginBottom="20dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/logo_showin_white_full"
+                        android:onClick="@{() -> viewModel.onTestClick()}"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="20dp"
+                        android:padding="11dp"
+                        android:onClick="@{() -> viewModel.onSearchClick()}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/search_icon2"
+                        android:background="@drawable/bg_button"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:onClick="@{() -> viewModel.onClickSchedule()}"
+                    android:visibility="@{viewModel.shows != null ? View.VISIBLE : View.GONE}"
+                    android:gravity="center"
+                    android:background="@drawable/bg_multicolor_button2">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/logo_star"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:text="@string/schedule_live"
+                        android:textSize="18sp"
+                        android:padding="12dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lin"
+                    android:orientation="vertical"/>
+
+                <!--RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/highlighted"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/see_all"
+                        android:textColor="@color/light_blue"
+                        android:textSize="14sp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="center"/>
+
+                </RelativeLayout-->
+
+            </LinearLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+</layout>

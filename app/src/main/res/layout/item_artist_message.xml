@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="artistMessage"
+            type="br.com.noclaftech.domain.model.Message" />
+    </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/messageDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="10 de abril 2020"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@string/lorem_ipsum"
+            android:text="@{artistMessage.message}"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="5dp"/>
+
+    </LinearLayout>
+
+
+</layout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="ViewHolder"
+            type="br.com.noclaftech.showin.presentation.buycoins.BuyCoinsViewModel" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="17dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/sale"
+                        android:tint="@color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/totalCoins"
+                        tools:text="10 Moedas"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        />
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:id="@+id/buttonPrice"
+                    tools:text="R$ 10,00"
+                    android:textColor="@color/white"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/bg_button_pink"/>
+
+            </RelativeLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

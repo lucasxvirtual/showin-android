@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="@string/home"
+        android:icon="@drawable/menu_home_selector"/>
+
+    <item
+        android:id="@+id/tickets"
+        android:title="@string/my_tickets"
+        android:icon="@drawable/menu_ticket_selector"/>
+
+    <item
+        android:id="@+id/myShows"
+        android:title="@string/my_shows"
+        android:icon="@drawable/menu_myshows_selector"/>
+
+    <item
+        android:id="@+id/sale"
+        android:title="@string/sale"
+        android:icon="@drawable/menu_sale_selector"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="@string/profile"
+        android:icon="@drawable/menu_profile_selector"/>
+
+</menu>

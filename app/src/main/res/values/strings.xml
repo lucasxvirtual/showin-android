@@ -1,0 +1,450 @@
+<resources>
+    <string name="app_name">ShowIn</string>
+
+    <string name="facebook_app_id">549331085983812</string>
+    <string name="fb_login_protocol_scheme">fb549331085983812</string>
+    <string name="client_id">735881025582-nmccqeafiisc3ac2h1rvanasg88m2q6u.apps.googleusercontent.com</string>
+
+
+
+    <string name="login">Login</string>
+    <string name="not_a_winner_yet">Ainda não é um WINNER?</string>
+    <string name="be">Seja!!</string>
+    <string name="sign_up">Cadastre-se!!</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
+    <string name="forgor_password">Esqueceu sua senha?</string>
+    <string name="keep_logged">Manter logado</string>
+    <string name="enter">ENTRAR</string>
+    <string name="or_connect_with">Ou conecte com</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="success_email_sent">Email enviado com sucesso</string>
+    <string name="auth_error">Erro ao autenticar</string>
+
+    <string name="at">\@%s</string>
+    <string name="at_sign">\@</string>
+    <string name="standard_timezone">America/Sao_Paulo</string>
+
+
+    <string name="forgot_my_password">Esqueceu sua senha?!</string>
+    <string name="change_password_link">Não tem problema. A gente não esquece de você. Clica no botão aqui embaixo que todos os seus problemas serão resolvidos. Bora Winner!!</string>
+    <string name="send">Enviar</string>
+
+    <string name="subject">Assunto </string>
+    <string name="we_hear_you">Fala que a gente escuta...</string>
+    <string name="message">Mensagem</string>
+    <string name="type_message_here">digite sua mensagem aqui ...</string>
+    <string name="talk">fala...</string>
+    <string name="type">digite...</string>
+
+    <string name="more_options">Mais opções</string>
+    <string name="tutorials">Tutoriais</string>
+    <string name="config">Configurações</string>
+
+    <string name="invalid_format">Formato inválido</string>
+    <string name="invalid_format_date">Formato inválido (MM/AAAA)</string>
+    <string name="invalid_year">Ano inválido</string>
+    <string name="invalid_day">Dia inválido</string>
+
+    <string name="how_to_put_up_a_show">Como montar um show</string>
+    <string name="transmission_tips">Dicas de transmissão</string>
+    <string name="marketing_tips">Dicas de marketing</string>
+
+    <string name="notifications">Notificações</string>
+    <string name="allow_notifications">Permitir Notificações</string>
+    <string name="allow_stars_emails">Permitir e-mails das estrelas</string>
+    <string name="allow_commercials_emails">Permitir e-mails comerciais</string>
+
+    <string name="legal_terms">Termos legais</string>
+    <string name="privacy_policy">Política de privacidade</string>
+    <string name="open_code_licence">Liceças de código aberto</string>
+
+    <string name="artist_account_congrats">Ae!!! Para nós você agora é uma Estrela!! Agora é agendar seu evento e: Brilhe!!!</string>
+    <string name="what_about_start_now">Que tal começar agora?</string>
+    <string name="schedule_event">Marcar evento</string>
+    <string name="live_schedule">Marcar live</string>
+    <string name="edit_event">Editar evento</string>
+    <string name="schedule">Marcar</string>
+    <string name="my_events">Meus Eventos</string>
+
+    <string name="show_name">Nome do show</string>
+    <string name="date">Data</string>
+    <string name="start_time">Hora</string>
+    <string name="show_duration">Duração</string>
+    <string name="live_date">Data da live</string>
+    <string name="live_date_subtitle">Se programe bem! Sua live\nsó pode ser marcada com\n1 hora de antecedência</string>
+    <string name="live_hour">Hora da live</string>
+    <string name="hint_live_hour">00:00</string>
+    <string name="show_description">Apresentação</string>
+    <string name="age_rating">Faixa etária</string>
+    <string name="record_position">Posição de gravação</string>
+    <string name="tickets">Ingressos</string>
+    <string name="pay_what_you_can">Pague o quanto puder</string>
+    <string name="how_much_i_receive">Quanto vou receber?</string>
+    <string name="currency_value">Valor da moeda</string>
+    <string name="value_currency_value">R$ 1,00</string>
+    <string name="price_value_zero">R$ 0,00</string>
+    <string name="price_value">R$ %s</string>
+    <string name="price_value_float">R$ %.2f</string>
+    <string name="platform_cost_default">R$ %s / usuário</string>
+    <string name="platform_cost_zero">R$ 0,00 / usuário</string>
+    <string name="ticket_price_in_coins">Valor do ingresso em Winns</string>
+    <string name="tickets_limit">Limite de ingressos</string>
+    <string name="n_tickets_limit">nº limite de ingressos</string>
+    <string name="category">Categoria</string>
+    <string name="category_percent"><b>Categoria:</b> %s</string>
+    <string name="attention_here">Atenção aqui!</string>
+    <string name="send_ticket_notification">Enviar recado para quem comprou o ingresso, antes e depois do show</string>
+    <string name="winners_on_show">Mostrar numero de Winners na platéia</string>
+    <string name="live_test">Live de teste</string>
+    <string name="set_list">setlist</string>
+    <string name="schedule_show_success">Show marcado\ncom sucesso!</string>
+    <string name="view_schedule">Visualizar agenda</string>
+    <string name="cant_config">Live não está acontecendo</string>
+
+
+    <string name="home">Home</string>
+    <string name="profile">Perfil</string>
+    <string name="my_tickets">Meus ingressos</string>
+    <string name="sale">Saldo</string>
+    <string name="registration_information">Informações de cadastro</string>
+    <string name="payment_information">Informações de pagamento</string>
+    <string name="star_account">Conta de Estrela</string>
+    <string name="change_to_star_account">Muda para conta de estrela</string>
+    <string name="switch_to_star_account">Mudar para conta de estrela</string>
+    <string name="how_to_schedule_a_live">Como marcar uma live</string>
+    <string name="settings">Configurações</string>
+    <string name="contact">Entre em contato</string>
+
+    <string name="about">Sobre o Showin</string>
+    <string name="exit">Sair</string>
+
+    <string name="add_socials">Adicionar redes sociais</string>
+    <string name="socials_info">As informações que você colocar aqui estarão disponíveis para todos os Winners que entrarem no seu perfil. Todo mundo mais pertinho!!</string>
+    <string name="my_socials">Minhas redes sociais</string>
+    <string name="socials">Redes sociais</string>
+    <string name="no_socials">Adicionar redes sociais</string>
+    <string name="whatsapp">Whatsapp</string>
+    <string name="whatsapp_hint">00 00000–0000</string>
+    <string name="whatsapp_et_text">+55</string>
+    <string name="instagram">Instagram</string>
+    <string name="instagram_hint">seu_usuário</string>
+    <string name="instagram_et_text">"@ %s"</string>
+    <string name="facebook_social">Facebook</string>
+    <string name="your_id">seu_id</string>
+    <string name="facebook_et">"facebook.com/"</string>
+    <string name="linkedin">Linkedin</string>
+    <string name="linkedin_hint">linkedin.com/in/</string>
+    <string name="twitter">Twitter</string>
+
+    <string name="available_winns">Winns Disponíveis</string>
+    <string name="user_extract">Extrato do usuário</string>
+    <string name="soon">Em breve!</string>
+    <string name="extract">Extrato</string>
+    <string name="donate_winns">Doar Winns</string>
+    <string name="donate">Doar</string>
+    <string name="donate_tickets">Doar Ingresso</string>
+    <string name="dialog_donate_tickets_subtitle">Que tal doar ingressos para \n os seus amigos? Preencha as \ninformações abaixo e junte a galera!</string>
+    <string name="select_the_ticket">Selecione o ingresso</string>
+    <string name="how_many_tickets">Quantidade de ingressos</string>
+    <string name="invalid_quantity">Você precisa comprar pelo menos um ingresso.</string>
+    <string name="addressee_username">Username/Email do destinatário</string>
+    <string name="artist_extract">Extrato do artista</string>
+    <string name="buy_winns">Comprar Winns</string>
+    <string name="transfer_winns">Transferir Winns</string>
+    <string name="see_all">ver todos</string>
+    <string name="waiting_next_live">Estamos aguardando sua próxima live</string>
+    <string name="no_past_lives_placeholder">Nenhuma live antiga</string>
+    <string name="next_lives">Próximas lives</string>
+    <string name="no_next_lives_tickets_placeholder">Você não pussui ingresso\npara próximas lives</string>
+    <string name="no_past_lives_tickets_placeholder">Você não possui ingressos\nantigos</string>
+    <string name="past_lives">Lives passadas</string>
+    <string name="buy">Comprar</string>
+    <string name="stream">Transmitir</string>
+    <string name="start">Começar</string>
+    <string name="highlighted">Em destaque</string>
+    <string name="presentation">Apresentação</string>
+    <string name="purchase">Compra de %s</string>
+    <string name="donation_to">Doação para %s</string>
+    <string name="donation_of">Doação de %s</string>
+    <string name="purchase_coin">Compra de moeda</string>
+    <string name="refund">Reembolso de %s</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</string>
+
+    <string name="about_star">Sobre a Estrela</string>
+    <string name="follow">Seguir</string>
+    <string name="following">Seguindo</string>
+    <string name="buy_ticket">Comprar ingresso</string>
+    <string name="value">Valor</string>
+    <string name="confirm_buy">Confirmar compra</string>
+
+    <string name="delete">Apagar</string>
+    <string name="delete_all">Apagar tudo</string>
+    
+    <string name="visit_profile">Visitar Perfíl</string>
+    <string name="denounce">Denunciar</string>
+    <string name="denounce_hint">Digite uma razão para a denúncia…</string>
+    <string name="user">Usuário: %s</string>
+    <string name="denounce_message">Mensagem: %s</string>
+
+    <string name="tips">Gorjetas</string>
+    <string name="total_donation">Total de doação: </string>
+    <string name="total_sell">Total de vendas: </string>
+    <string name="total_coins">%d moedas</string>
+    <string name="total_collected">Total arrecadado: </string>
+    <string name="artist_total">Total para o artista (%s):</string>
+    <string name="tax">Taxas e agênciamento do ShowIn (%s):</string>
+    <string name="card_fees">Taxas de cartão:</string>
+    <string name="ecad_fees">Ecad</string>
+    <string name="ecad">Ecad (%s)</string>
+    <string name="remaining_ticket_value">Valor restante do ingresso</string>
+    <string name="artist_value_per_ticket">Valor do artista por ingresso (%s)</string>
+    <string name="what_about_pre_view">Que tal pré-visualizar o evento?</string>
+    <string name="pre_view">Pré-visualizar</string>
+    <string name="infrastructure_cost">Custo da infraestrutura:</string>
+    <string name="ticket_value_artist">Valor do ingresso para o artista (%s):</string>
+    <string name="number_winns">número de winns</string>
+    <string name="username_or_email_or_recipient">username/email do destinatário</string>
+    <string name="password_confirmation">senha para confirmação</string>
+    <string name="purchased">Comprado</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="error">Erro</string>
+    <string name="ok">Ok</string>
+    <string name="watch">Assistir</string>
+    <string name="he_deserve">Ele(a) merece!!</string>
+
+    <!--Image Helper-->
+    <string name="add_image">Adicionar Imagem</string>
+    <string name="chose_origin">Escolha a origem da imagem</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Galeria</string>
+    <string name="image_error">Erro ao carregar imagem</string>
+    <string name="image_path">image</string>
+
+    <string name="username">Username</string>
+    <string name="name">Nome</string>
+    <string name="birth">Nascimento</string>
+    <string name="birth_date">Data de nascimento</string>
+    <string name="gender">Gênero</string>
+    <string name="time_zone">time zone</string>
+    <string name="confirm_password">Confirmação de senha</string>
+    <string name="edit">Editar</string>
+    <string name="register">Cadastro</string>
+    <string name="access">Cadastrar</string>
+    <string name="already_a_WINNER">Já é um WINNER?</string>
+    <string name="agree_with">Concordo com os</string>
+    <string name="terms_use">Termos de Uso</string>
+
+    <string name="support_the_star">Apoie a Estrela</string>
+    <string name="winns_amount">número de winns</string>
+    <string name="transfer_success">Transferência bem sucedida</string>
+
+    <string name="test_moment">Momento Teste</string>
+    <string name="test_moment_subtitle_1">Verifique seu microfone e o\nprosicionamento de câmera!</string>
+    <string name="test_moment_subtitle_2">Quando estiver tudo pronto,\né só entrar ao vivo!</string>
+    <string name="test_moment_reminder">Lembre-se de não sair do\naplicativo durante a transmissão.</string>
+    <string name="start_test">começar teste</string>
+
+    <string name="end_stream_title">Encerrar</string>
+    <string name="end_stream_subtitle">Tem certeza que deseja\nencerrar a gravação da live?</string>
+    <string name="cancel">cancelar</string>
+
+
+    <string name="month">Mês</string>
+    <string name="day">Dia (DD)</string>
+    <string name="year">Ano (AAAA)</string>
+
+    <string name="horizontal">Horizontal</string>
+    <string name="vertical">Vertical</string>
+
+    <string name="male">Masculino</string>
+    <string name="female">Feminino</string>
+    <string name="other">Outro</string>
+    <string name="required_field">Campo obrigatório</string>
+    <string name="insert_a_valid_hour">Insira uma hora válida</string>
+    <string name="password_must_match">Senhas não coincidem</string>
+    <string name="max_length">Você atingiu o máximo de caracteres</string>
+    <string name="correct_format_date">Formato incorreto\n00/0000</string>
+    <string name="insert_photo">Insira sua foto</string>
+    <string name="you_need_accept_terms">Você precisa aceitar os termos de uso</string>
+    <string name="invalid_date">Data inválida</string>
+    <string name="artist_account">Conta de artista</string>
+    <string name="text_change_artist_account">Mude para conta de artista e agende shows ou soundchecks a qualquer momento. Insira nos campos abaixo o seu nome de artista e suas informações bancárias para futuras transações:</string>
+    <string name="artistic_name">Nome artístico</string>
+    <string name="cap_artistic_name">Nome artístico</string>
+    <string name="bank">Banco</string>
+    <string name="agency">Agência</string>
+    <string name="account">Conta</string>
+    <string name="cpf">CPF</string>
+    <string name="next">PRÓXIMO</string>
+    <string name="physical_person">Pessoa Física</string>
+    <string name="legal_person">Pessoa Jurídica</string>
+    <string name="bank_data">Dados Bancários</string>
+    <string name="cnpj">CNPJ</string>
+    <string name="digit">Dígito</string>
+    <string name="invalid_cpf">Cpf inválido</string>
+    <string name="invalid_cnpj">Cnpj inválido</string>
+    <string name="now_just_set_your_artist_page">Agora é só configurar sua página de artista:</string>
+    <string name="artist_page_settings">Configurações da página de artista</string>
+    <string name="show_concerts_performed">Mostrar shows realizados</string>
+    <string name="show_number_fans_in_show">Mostrar nº de fans no show</string>
+    <string name="write_bio">Escreva uma bio</string>
+    <string name="thanks_message">Obrigado pela mensagem!</string>
+    <string name="coins">Moedas</string>
+    <string name="winns">Winns</string>
+    <string name="money_type">R$</string>
+    <string name="money_type_format">R$ %s</string>
+    <string name="payment">Pagamento</string>
+    <string name="code">Código</string>
+    <string name="date_valid_card">Validade do cartão</string>
+    <string name="card_brand">Bandeira do cartão</string>
+    <string name="card_number">Número do cartão</string>
+    <string name="card_holder">Nome do dono do cartão</string>
+    <string name="brands">Bandeiras</string>
+    <string name="thanks_buy">Obrigado pela compra</string>
+    <string name="text_payment_success">Sua compra está em análise, enviaremos um email com a confirmação de compra e suas moedas serão adicionadas no seu saldo</string>
+    <string name="back">Voltar</string>
+    <string name="messages">Papo Reto</string>
+    <string name="user_message">Papo Reto de %s</string>
+    <string name="my_messages">Meus Papos</string>
+    <string name="bio">Sou Assim</string>
+    <string name="next_shows">Próximos shows</string>
+    <string name="past_shows">Shows passados</string>
+    <string name="email_or_password_invalid">Email ou senha inválidos</string>
+    <string name="change_password">Alterar senha</string>
+    <string name="success_change_password">Senha altera com sucesso</string>
+    <string name="success">Sucesso</string>
+    <string name="failure_change_password">Não foi possível alterar a senha</string>
+    <string name="new_password">Nova senha</string>
+    <string name="confirm_new_password">Confirmar nova senha</string>
+    <string name="current_password">Senha atual</string>
+    <string name="artist_information">Informações do artista</string>
+    <string name="insufficient_funds">Saldo insuficiente</string>
+    <string name="ticket_minimum_value">O valor mínimo para esta quantidade de ingressos é %s</string>
+    <string name="invalid_hour">Hora inválida</string>
+    <string name="insert_vertical_image">Insira a imagem vertical</string>
+    <string name="insert_horizontal_image">Insira a imagem horizontal</string>
+    <string name="suggested_currency_value">Valor sugerido</string>
+    <string name="value_minimum_ticket">O valor mínimo do ingresso é %1$d</string>
+    <string name="save">Salvar</string>
+    <string name="success_changes">Alterações feitas com sucesso</string>
+    <string name="owner_account">Titular da conta</string>
+    <string name="followers">Seguidores</string>
+    <string name="winners">Winners</string>
+
+
+    <string name="go_home">Ir para home</string>
+    <string name="cardholder_name">Titular</string>
+    <string name="company_name">Razão Social</string>
+
+    <string name="version">Versão</string>
+
+    <plurals name="avaible">
+        <item quantity="one">Disponível: %1$d</item>
+        <item quantity="other">Disponíveis: %1$d</item>
+    </plurals>
+
+    <plurals name="following_artist">
+        <item quantity="one">Seguindo %1$d artista</item>
+        <item quantity="other">Seguindo %1$d artistas</item>
+    </plurals>
+
+    <string name="number_following">%1$d\n Seguindo</string>
+
+    <string name="my_shows">Meus Shows</string>
+
+    <plurals name="followers">
+        <item quantity="one">Seguidor</item>
+        <item quantity="other">Seguidores</item>
+    </plurals>
+
+    <string-array name="legal_or_physical_person">
+        <item>Pessoa Física</item>
+        <item>Pessoa Jurídica</item>
+    </string-array>
+
+
+    <string name="one_ticket">%d ingresso</string>
+    <string name="ticket_plural">%d ingressos</string>
+
+    <!--             MASCARAS                    -->
+    <string name="mask_birthday">##/##/####</string>
+    <string name="mask_cpf">###.###.###-##</string>
+    <string name="mask_cnpj">##.###.###/####-##</string>
+    <string name="mask_number_card">#### #### #### #### #### ####</string>
+    <string name="mask_code_card">###</string>
+    <string name="mask_time">##:##</string>
+    <string name="mask_date_card">##/####</string>
+    <string name="mask_phone">(55) ## #####-####</string>
+    <string name="mask_phone2">## #####-####</string>
+    <string name="mask_instagram">\@#############################################</string>
+    <string name="mask_facebook">facebook.com/##################################################</string>
+    <string name="mask_linkedin">linkedin.com/in/################################################</string>
+
+    <string name="donation_success">Doação realizada com sucesso</string>
+
+    <string name="lives">Lives</string>
+    <string name="artist">Artista</string>
+    <string name="search">Busca</string>
+
+    <string name="go_live">Transmitir</string>
+    <string name="finish">Encerrar</string>
+    <string name="connecting">Conectando</string>
+    <string name="connected">Conectado</string>
+    <string name="weak">Conexão fraca</string>
+    <string name="resume">Conexão recuperada</string>
+    <string name="disconnected">Desconectado</string>
+    <string name="connection_error">Erro ao conectar</string>
+    <string name="live_error">Erro ao entrar live</string>
+    <string name="finish_error">Erro ao finalizar live</string>
+
+    <string name="device_stream">pelo celular</string>
+    <string name="another_tool">outra ferramenta</string>
+    <string name="stream_advertise">Para transmitir em outra ferramenta (Exemplo: OBS), preparamos um tutorial para ajudar:</string>
+    <string name="see_tutorial"><u>Ver tutorial</u></string>
+    <string name="cost_detail">Detalhe de custo</string>
+    <string name="cost_text">Considerando uma venda de 1.000 ingressos para uma transmissão de 2 horas, num valor de 10 moedas:\n\nTotal de vendas: 10.000 moedas\n\nTotal de arrecadado: R$ 10.000 reais\n\nTaxa de cartão: R$ 300 reais\n\nTaxa de infraestrutura: R$ 1.000 reais\n\nTotal de lucro: R$ 8.700 reais\n\nTotal para artista (70%): R$ 6.090 reais\n\nTotal para ShowIn (30%): R$ 2.610 reais</string>
+    <string name="live">Ao vivo</string>
+    <string name="invalid_phone">Telefone inválido</string>
+    <string name="not_available">Não disponível</string>
+    <string name="search_profile">Perfil</string>
+    <string name="link_copied">Link copiado na area de transferencia</string>
+    <string name="erase_all">Tem certeza que deseja apagar tudo?</string>
+    <string name="erase">Apagar</string>
+    <string name="report">Denunciar</string>
+    <string name="report_sucess_sent">Denuncia enviada com sucesso!</string>
+
+    <string name="donation_chat">Transferiu %s Winns</string>
+    <string name="what_to_do">O que deseja fazer?</string>
+    <string name="see_profile">Ver perfil</string>
+    <string name="finish_live">Tem certeza que deseja encerrar a live?</string>
+    <string name="still_available">Ainda disponíveis</string>
+    <string name="available_for_sale">Disponibilizados para venda</string>
+    <string name="sold">Vendidos</string>
+    <string name="sold_tickets">Ingressos vendidos</string>
+    <string name="buyers">Compradores</string>
+
+    <array name="month">
+        <item>Janeiro</item>
+        <item>Fevereiro</item>
+        <item>Março</item>
+        <item>Abril</item>
+        <item>Maio</item>
+        <item>Junho</item>
+        <item>Julho</item>
+        <item>Agosto</item>
+        <item>Setembro</item>
+        <item>Outubro</item>
+        <item>Novembro</item>
+        <item>Dezembro</item>
+    </array>
+
+    <string name="schedule_live">Agende sua live</string>
+    <string name="number_of_tickets">Nº de ingressos</string>
+    <string name="total_value">Valor total</string>
+    <string name="not_enough_winns">Você não possui winns\nsuficientes para realizar a compra</string>
+    <string name="confirm_buy_text">Compra realizada com sucesso!\nAgora é só esperar a live começar</string>
+
+</resources>

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.paymentinfo.PaymentInfoViewModel" />
+        <import type="android.view.View"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.paymentinfo.PaymentInfoActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> viewModel.goBack()}"
+                    android:src="@drawable/back_icon"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_information"
+                    android:textColor="@color/pink"
+                    android:textSize="22sp"
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"/>
+
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="@string/physical_person"-->
+<!--                    android:onClick="@{() -> viewModel.setPhysicalPerson()}"-->
+<!--                    android:textColor="@{viewModel.isPhysicalPerson ? @color/light_blue : @color/white}"-->
+<!--                    tools:textColor="@color/white"-->
+<!--                    android:paddingTop="5dp"-->
+<!--                    android:paddingEnd="5dp"-->
+<!--                    android:paddingBottom="5dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="16sp"/>-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentEnd="true"-->
+<!--                    android:text="@string/legal_person"-->
+<!--                    android:onClick="@{() -> viewModel.setLegalPerson()}"-->
+<!--                    android:textColor="@{viewModel.isPhysicalPerson ? @color/white : @color/light_blue}"-->
+<!--                    tools:textColor="@color/white"-->
+<!--                    android:padding="5dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textSize="16sp"/>-->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bank_data"
+                    android:textColor="@color/white"
+                    android:padding="5dp"
+                    android:textStyle="bold"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/person"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/physical_person"
+                    android:text="@{viewModel.isPhysicalPerson ? @string/physical_person : @string/legal_person}"
+                    android:focusable="false"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="textPersonName"
+                    android:padding="15dp"
+                    android:background="@drawable/bg_edit_text2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/arrow_down"
+                    android:backgroundTint="@color/white"
+                    android:tint="@color/white"
+                    android:layout_marginEnd="10dp"
+                    android:spinnerMode="dialog"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bank"
+                android:layout_marginTop="15dp"
+                android:hint="@string/bank"
+                android:text="@={viewModel.bank}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:background="@drawable/bg_edit_text2"/>
+
+
+            <EditText
+                android:id="@+id/agency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/agency"
+                android:text="@={viewModel.agency}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:padding="15dp"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <EditText
+                android:id="@+id/account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/account"
+                android:text="@={viewModel.account}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="text"
+                android:padding="15dp"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <EditText
+                android:id="@+id/cpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/cpf"
+                android:text="@={viewModel.cpf}"
+                android:visibility="@{viewModel.isPhysicalPerson ? View.VISIBLE : View.GONE}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="number"
+                android:padding="15dp"
+                mask="@{@string/mask_cpf}"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <EditText
+                android:id="@+id/cnpj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="@string/cnpj"
+                android:text="@={viewModel.cnpj}"
+                android:visibility="@{viewModel.isPhysicalPerson ? View.GONE : View.VISIBLE}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="number"
+                android:padding="15dp"
+                mask="@{@string/mask_cnpj}"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/owner"
+                android:layout_marginTop="15dp"
+                android:hint="@{viewModel.isPhysicalPerson ? @string/cardholder_name : @string/company_name}"
+                android:text="@={viewModel.owner}"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:background="@drawable/bg_edit_text2"/>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_multicolor_button"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/edit"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:layout_gravity="center"
+                android:onClick="@{() -> viewModel.onSaveClicked()}"
+                android:textColor="@color/white"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

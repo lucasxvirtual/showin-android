@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewHolder"
+            type="br.com.noclaftech.showin.presentation.adapter.SearchShowAdapter.Holder" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp"
+        android:elevation="0dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="10:5.4"
+                tools:src="@drawable/show_horizontal"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                app:layout_constraintCircleRadius="10dp"
+                tools:ignore="MissingConstraints"
+                />
+<!--            app:loadImage="@{viewHolder.show.horizontalImage}"-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:scaleY="-1"
+                tools:ignore="MissingConstraints"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/gradient_black"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:orientation="vertical"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:paddingBottom="15dp"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/name"
+                    tools:text="Lorem Ipsum"
+                    android:shadowColor="@color/black"
+                    android:shadowRadius="1"
+                    android:shadowDy="4"
+                    android:shadowDx="4"
+                    android:textColor="@color/yellow"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    />
+
+                <TextView
+                    android:id="@+id/nameShow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:fontFamily="@font/firasansitalic"
+                    tools:text="On tour"
+                    android:textStyle="bold|italic"
+                    android:layout_marginTop="-5dp"
+                    android:layout_marginBottom="-2dp"
+                    android:textColor="@color/white"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/date"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="-5dp"
+                        tools:text="SEX, 10 ABR 2020"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hour"
+                        android:layout_below="@id/date"
+                        android:textSize="14sp"
+                        tools:text="21h - 23h"
+                        android:textColor="@color/white"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:id="@+id/classification"
+                        android:layout_marginTop="2dp"
+                        android:layout_centerInParent="true"
+                        android:layout_alignParentEnd="true"
+                        tools:src="@drawable/classification"
+                        />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:paddingBottom="15dp"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:textColor="@color/white"
+                    tools:text="5"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/coin"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:visibility="invisible"
+                    android:layout_marginEnd="15dp"
+                    android:src="@drawable/coin_white_icon"/>
+
+                <Button
+                    android:id="@+id/buy"
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/bg_button"
+                    android:textSize="12sp"
+                    tools:text="@string/buy"
+                    android:visibility="invisible"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:paddingEnd="10dp"
+                    android:paddingStart="10dp"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

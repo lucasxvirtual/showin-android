@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.contact.ContactUsViewModel"/>
+    </data>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.contact.ContactUsActivity"
+        android:background="@color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="20dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> viewModel.onBackClicked()}"
+                    android:src="@drawable/back_icon"
+                    android:padding="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contact"
+                    android:textSize="22sp"
+                    android:textColor="@color/pink"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/subject"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <EditText
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.title}"
+                    android:padding="15dp"
+                    android:hint="@string/subject"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="text"
+                    android:background="@drawable/bg_edit_text2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="15dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:id="@+id/message"
+                    android:text="@={viewModel.message}"
+                    android:minLines="10"
+                    android:lines="20"
+                    android:padding="15dp"
+                    android:hint="@string/we_hear_you"
+                    android:scrollbars="vertical"
+                    android:textColorHint="@color/white"
+                    android:textColor="@color/white"
+                    android:inputType="textMultiLine"
+                    android:background="@drawable/bg_edit_text2"
+                    android:gravity="top" />
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="50dp"
+                    android:onClick="@{() -> viewModel.onSendClicked()}"
+                    android:background="@drawable/bg_multicolor_button"
+                    android:layout_marginTop="50dp"
+                    android:layout_gravity="center"
+                    android:text="@string/send"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:padding="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

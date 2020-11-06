@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.watch.WatchViewModel" />
+
+        <import type="android.view.View"/>
+        <import type="br.com.noclaftech.showin.presentation.util.Helper"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@color/black"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/videoFrame">
+
+            <com.devbrackets.android.exomedia.ui.widget.VideoView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:videoScale="centerCrop"
+                app:useTextureViewBacking="true"
+                android:id="@+id/videoview"
+                app:useDefaultControls="true"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:onClick="@{() -> viewModel.onBackClicked()}"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:padding="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/back_icon"/>
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:src="@drawable/logo_showin_white_full"
+                android:layout_marginTop="9dp"
+                app:layout_constraintStart_toEndOf="@+id/backIcon"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/container"/>
+
+    </RelativeLayout>
+
+</layout>

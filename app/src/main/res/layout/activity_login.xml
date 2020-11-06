@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.login.LoginViewModel"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_mirror_filter">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:rotation="180"
+            android:background="@drawable/gradient_light_black"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/gradient_light_black" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".presentation.login.LoginActivity">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:src="@drawable/logo_colored_star"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login"
+                        android:textColor="@color/pink"
+                        android:textSize="26sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="25dp"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/not_a_winner_yet"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sign_up"
+                        android:onClick="@{() -> viewModel.onRegisterClicked()}"
+                        android:textColor="@color/light_blue"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="center"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/username"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:hint="@string/email"
+                        android:text="@={viewModel.username}"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:inputType="textEmailAddress"
+                        android:imeOptions="actionNext"
+                        android:padding="10dp"
+                        android:background="@drawable/bg_black_transparent"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/password"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:hint="@string/password"
+                        android:text="@={viewModel.password}"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:inputType="textWebPassword"
+                        android:imeOptions="actionDone"
+                        android:padding="10dp"
+                        android:background="@drawable/bg_black_transparent"/>
+                    
+<!--                    <br.com.noclaftech.showin.presentation.util.TextViewWithImages-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:text="Press ¶hot¶ to ¶star¶ to ¶heart¶ to ¶laugh¶ to ¶asd¶ to ¶clap¶ accept or"/>-->
+
+<!--                    <br.com.noclaftech.showin.presentation.util.EditTextWithImages-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColor="@color/white"-->
+<!--                        android:padding="10dp"-->
+<!--                        android:text="Press [img src=hot/] to [img src=star/] to [img src=heart/] to [img src=laugh/] to [img src=love/] to [img src=clap/] accept or"-->
+<!--                        android:background="@drawable/bg_black_transparent"-->
+<!--                        android:layout_marginStart="20dp"-->
+<!--                        android:layout_marginEnd="20dp"/>-->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="25dp"
+                        android:onClick="@{() -> viewModel.onForgotPasswordClicked()}"
+                        android:text="@string/forgor_password"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp">
+
+                        <Switch
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:theme="@style/SCBSwitch"
+                            android:checked="@={viewModel.remember}"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keep_logged"
+                            android:textSize="16sp"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="8dp"/>
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_multicolor_button"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="@string/enter"
+                        android:textAllCaps="true"
+                        android:onClick="@{() -> viewModel.onLoginClicked()}"
+                        android:textColor="@color/white"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:text="@string/or_connect_with"
+                        android:layout_marginTop="20dp"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/facebook"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bg_facebook">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/facebook_icon"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/facebook"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="10dp"
+                            android:textAllCaps="true"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/google"
+                        android:layout_marginStart="60dp"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:padding="10dp"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/bg_google">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/google_icon"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/google"
+                            android:textColor="@color/white"
+                            android:layout_marginStart="10dp"
+                            android:textAllCaps="true"
+                            />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/version"
+                        tools:text="Version : 1.0"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"/>
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+</layout>

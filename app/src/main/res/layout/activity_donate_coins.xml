@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.donatecoins.DonateCoinsViewModel" />
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        android:background="@color/black"
+        tools:context=".presentation.donatecoins.DonateCoinsActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> viewModel.onBackClicked()}"
+                    android:padding="10dp"
+                    android:src="@drawable/back_icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/donate_winns"
+                    android:textColor="@color/pink"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="20dp"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/value"
+                    android:background="@drawable/bg_edit_text2"
+                    android:padding="15dp"
+                    android:hint="@string/number_winns"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="16sp"
+                    android:inputType="number"
+                    android:paddingEnd="50dp"
+                    android:text="@={viewModel.value}"
+                    />
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/coin_white_icon"/>
+
+            </RelativeLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/receiver"
+                android:background="@drawable/bg_edit_text2"
+                android:padding="15dp"
+                android:hint="@string/username_or_email_or_recipient"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp"
+                android:inputType="text"
+                android:layout_marginTop="30dp"
+                android:text="@={viewModel.receiver}"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/password"
+                android:background="@drawable/bg_edit_text2"
+                android:padding="15dp"
+                android:hint="@string/password_confirmation"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:textSize="16sp"
+                android:inputType="textWebPassword"
+                android:layout_marginTop="30dp"
+                android:text="@={viewModel.password}"
+                />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.donate()}"
+                android:background="@drawable/bg_button"
+                android:layout_marginTop="50dp"
+                android:text="@string/donate_winns"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

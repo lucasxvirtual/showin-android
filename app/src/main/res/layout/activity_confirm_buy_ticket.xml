@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.confirmbuyticket.ConfirmBuyTicketViewModel"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".presentation.buyticket.BuyTicketActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="H,1:1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/ticket_image"
+                    app:loadImage="@{viewModel.image}"
+                    android:id="@+id/image"
+                    android:scaleType="centerCrop"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@drawable/gradient_black2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:orientation="vertical"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginBottom="25dp"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.artistName}"
+                        tools:text="Vitor Kley"
+                        android:layout_marginBottom="6dp"
+                        android:textColor="@color/yellow"
+                        android:textStyle="bold"
+                        android:textSize="30sp"
+                        />
+
+                    <TextView
+                        android:id="@+id/nameShow"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="@{viewModel.showName}"
+                        android:textStyle="bold|italic"
+                        android:fontFamily="@font/firasansitalic"
+                        tools:text="On tour"
+                        android:layout_marginBottom="6dp"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/date"
+                        android:textSize="14sp"
+                        android:text="@{viewModel.date}"
+                        tools:text="SEX, 10 ABR 2020"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/hour"
+                        android:textSize="14sp"
+                        android:text="@{viewModel.hour}"
+                        android:layout_marginBottom="16dp"
+                        tools:text="21h - 23h"
+                        android:textColor="@color/white"/>
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        tools:src="@drawable/classification"
+                        app:imageUrl="@{viewModel.ageRating}"
+                        />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/backIcon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:onClick="@{() -> viewModel.onBackClicked()}"
+                    android:padding="15dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/back_icon"/>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/logo_showin_white_full"
+                    android:layout_marginTop="9dp"
+                    app:layout_constraintStart_toEndOf="@+id/backIcon"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo_colored_star"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/confirm_buy_text"
+                />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ir para meus ingressos"
+                android:background="@drawable/bg_multicolor_button"
+                android:textColor="@color/white"
+                android:paddingStart="26dp"
+                android:paddingEnd="26dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="20dp"
+                android:onClick="@{() -> viewModel.onClickFinish()}"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

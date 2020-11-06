@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="br.com.noclaftech.showin.presentation.artistmessages.ArtistMessagesViewModel" />
+        <import type="android.view.View"/>
+    </data>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:padding="20dp"
+        tools:context=".presentation.artistmessages.ArtistMessagesActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/back"
+                    android:src="@drawable/back_icon"
+                    android:onClick="@{() -> viewModel.onBackClicked()}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:padding="10dp"/>
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/logo_showin_white_full"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/back"/>
+
+                <Button
+                    android:id="@+id/follow"
+                    android:layout_width="90dp"
+                    android:layout_height="40dp"
+                    android:onClick="@{() -> viewModel.onClickFollow()}"
+                    android:text="@{viewModel.user.isFollowed ? @string/following : @string/follow }"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    tools:text="@string/follow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@{viewModel.user.isFollowed? @drawable/bg_light_blue : @drawable/bg_button}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/artist_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{String.format(@string/user_message, viewModel.user.name)}"
+                    tools:text="Papo Reto de Maniana Rocha"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+                <!--TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/artist_messages"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{viewModelArtist.user._artist ? View.VISIBLE : View.GONE}"
+                    android:layout_marginTop="20dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/type_message_here"
+                        android:textColorHint="@color/white"
+                        android:textColor="@color/white"
+                        android:background="@drawable/android:text="@{artistMessage.created_at}"bg_edit_text"
+                        android:padding="15dp"
+                        android:inputType="textMultiLine"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/arrow_right"
+                        android:background="@drawable/bg_light_blue"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout-->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerArtistMessages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
